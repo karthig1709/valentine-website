@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Valentine ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #ffffff, #cce7ff);
+    text-align: center;
+    color: #003366;
+}
+
+h1 { margin-top: 30px; font-size: 3em; }
+
+.panda {
+    width: 280px;
+    margin: 20px auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-12px);}
+    100% {transform: translateY(0);}
+}
+
+.love-text {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.proposal-box {
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    width: 80%;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    background: #66b3ff;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+button:hover { background: #3399ff; }
+
+audio {
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+🎵 <audio id="bgMusic" src="music.mp3" loop></audio>
+
+<script>
+window.addEventListener("click", () => {
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.7;
+    music.play();
+}, { once: true });
+</script>
+
+
+<h1>Happy 3rd Valentine’s Day 💙</h1>
+
+<img src="panda.png" class="panda">
+
+<div class="love-text">
+From the day you came into my life, everything became more beautiful.
+Every smile of yours is my happiness, every memory with you is my treasure.
+This page is full of our love and moments that mean the world to me 💙
+</div>
+
+<h2>Our Beautiful Memories 📸</h2>
+
+<div class="gallery">
+  <img src="images/photo1.jpg" alt="">
+  <img src="images/photo2.jpg" alt="">
+  <img src="images/photo3.jpg" alt="">
+  <img src="images/photo4.jpg" alt="">
+  <img src="images/photo5.jpg" alt="">
+  <img src="images/photo6.jpg" alt="">
+  <img src="images/photo7.jpg" alt="">
+</div>
+
+<div class="proposal-box">
+<h2>My Love ❤️</h2>
+<p>You are my today, my tomorrow, and my forever.</p>
+
+<h1>Will You Be My Valentine Forever? 💍💙</h1>
+
+<button onclick="alert('Love you pondati ❤️')">YES ❤️</button>
+</div>
+
+</body>
+</html>
