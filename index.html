@@ -12,8 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ---------- FRONT PAGE ---------- */
-
 #frontPage {
     height: 100vh;
     background: url("cloud-heart.jpg") center/cover no-repeat;
@@ -32,23 +30,13 @@ body {
     backdrop-filter: blur(1px);
 }
 
-.bear, h1, .buttons {
-    z-index: 2;
-}
+.bear, h1, .buttons { z-index: 2; }
 
-.bear {
-    width: 180px;
-}
+.bear { width: 180px; }
 
-h1 {
-    font-size: 2.6em;
-    margin: 20px 0;
-}
+h1 { font-size: 2.6em; margin: 20px 0; }
 
-.buttons {
-    display: flex;
-    gap: 20px;
-}
+.buttons { display: flex; gap: 20px; }
 
 .yes, .no {
     padding: 15px 35px;
@@ -59,17 +47,8 @@ h1 {
     position: relative;
 }
 
-.yes {
-    background: #28c76f;
-    color: white;
-}
-
-.no {
-    background: #ea5455;
-    color: white;
-}
-
-/* ---------- FLOATING HEARTS ---------- */
+.yes { background: #28c76f; color: white; }
+.no { background: #ea5455; color: white; }
 
 .heart, .confetti {
     position: absolute;
@@ -81,17 +60,9 @@ h1 {
 }
 
 @keyframes floatUp {
-    from {
-        transform: translateY(0) scale(1);
-        opacity:1;
-    }
-    to {
-        transform: translateY(-120vh) scale(1.6);
-        opacity:0;
-    }
+    from { transform: translateY(0) scale(1); opacity:1; }
+    to { transform: translateY(-120vh) scale(1.6); opacity:0; }
 }
-
-/* ---------- LOVE PAGE ---------- */
 
 #lovePage {
     display: none;
@@ -158,27 +129,18 @@ button.main {
 
 <body>
 
-<!-- FRONT PAGE -->
 <div id="frontPage">
-
 <img src="bear.png" class="bear">
-
 <h1>Will you be my Valentine? 💖</h1>
-
 <div class="buttons">
     <button class="yes" onclick="openLove()">Yes</button>
     <button class="no" onmouseover="moveNo()">No</button>
 </div>
-
 </div>
 
-<!-- LOVE PAGE -->
 <div id="lovePage">
-
 <audio id="bgMusic" src="music.mp3" loop></audio>
-
 <h1>Happy 3rd Valentine’s Day 💙</h1>
-
 <img src="Panda.png" class="panda">
 
 <div class="love-text">
@@ -200,9 +162,7 @@ Every smile of yours is my happiness, every memory with you is my treasure 💙
 
 <div class="proposal-box">
 <h2>My Love ❤️</h2>
-
 <h1>Will You Be My Valentine Forever? 💍💙</h1>
-
 <button class="main" onclick="celebrate()">YES ❤️</button>
 </div>
 
@@ -227,7 +187,6 @@ function moveNo(){
     btn.style.top = Math.random()*200 - 100 + "px";
 }
 
-/* Floating hearts on front page */
 function createHeart(){
     const heart = document.createElement("div");
     heart.className = "heart";
@@ -241,9 +200,8 @@ function createHeart(){
 
 setInterval(createHeart,250);
 
-/* Celebration Confetti */
 function celebrate(){
-    alert("Happy 3rd Valentine’s Day, my paapa 💙✨
+    alert(`Happy 3rd Valentine’s Day, my paapa 💙✨
 
 I love you so, so much, my beautiful pondati 🥹❤️
 You mean the whole world to me, my precious thangooo 💛
@@ -263,7 +221,7 @@ Don’t worry about anything, my paapa 🤍
 I will stay with you, support you, love you, and stand by you till my very last breath 💞🌍
 
 Forever yours,
-With all my love 💙💍✨");
+With all my love 💙💍✨`);
 
     for(let i=0;i<60;i++){
         const confetti = document.createElement("div");
@@ -277,8 +235,8 @@ With all my love 💙💍✨");
         setTimeout(()=>confetti.remove(),4000);
     }
 }
+
 </script>
 
 </body>
 </html>
-
