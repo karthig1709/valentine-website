@@ -71,7 +71,7 @@ h1 {
 
 /* ---------- FLOATING HEARTS ---------- */
 
-.heart {
+.heart, .confetti {
     position: absolute;
     bottom: -30px;
     font-size: 22px;
@@ -203,7 +203,7 @@ Every smile of yours is my happiness, every memory with you is my treasure 💙
 
 <h1>Will You Be My Valentine Forever? 💍💙</h1>
 
-<button class="main" onclick="alert('Love you pondati ❤️')">YES ❤️</button>
+<button class="main" onclick="celebrate()">YES ❤️</button>
 </div>
 
 </div>
@@ -227,8 +227,7 @@ function moveNo(){
     btn.style.top = Math.random()*200 - 100 + "px";
 }
 
-/* Floating hearts */
-
+/* Floating hearts on front page */
 function createHeart(){
     const heart = document.createElement("div");
     heart.className = "heart";
@@ -241,8 +240,24 @@ function createHeart(){
 }
 
 setInterval(createHeart,250);
+
+/* Celebration Confetti */
+function celebrate(){
+    alert("Love you pondati ❤️");
+
+    for(let i=0;i<60;i++){
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.innerHTML = Math.random() > 0.5 ? "💙" : "🤍";
+        confetti.style.left = Math.random()*100 + "vw";
+        confetti.style.fontSize = Math.random()*25 + 15 + "px";
+        confetti.style.animationDuration = Math.random()*2 + 2 + "s";
+        document.body.appendChild(confetti);
+
+        setTimeout(()=>confetti.remove(),4000);
+    }
+}
 </script>
 
 </body>
 </html>
-
