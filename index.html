@@ -9,7 +9,7 @@ body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* ---------- FRONT PAGE ---------- */
@@ -24,7 +24,6 @@ body {
     position: relative;
 }
 
-/* Soft overlay for readability */
 #frontPage::before{
     content:"";
     position:absolute;
@@ -51,25 +50,23 @@ h1 {
     gap: 20px;
 }
 
-.yes {
-    background: #28c76f;
-    color: white;
-    padding: 15px 35px;
-    border-radius: 15px;
-    font-size: 1.2em;
-    border: none;
-    cursor: pointer;
-}
-
-.no {
-    background: #ea5455;
-    color: white;
+.yes, .no {
     padding: 15px 35px;
     border-radius: 15px;
     font-size: 1.2em;
     border: none;
     cursor: pointer;
     position: relative;
+}
+
+.yes {
+    background: #28c76f;
+    color: white;
+}
+
+.no {
+    background: #ea5455;
+    color: white;
 }
 
 /* ---------- FLOATING HEARTS ---------- */
@@ -100,7 +97,8 @@ h1 {
     display: none;
     background: linear-gradient(to bottom right, #ffffff, #cce7ff);
     color: #003366;
-    overflow-y: auto;
+    min-height: 100vh;
+    padding-bottom: 40px;
 }
 
 .panda {
@@ -177,7 +175,7 @@ button.main {
 <!-- LOVE PAGE -->
 <div id="lovePage">
 
-🎵 <audio id="bgMusic" src="music.mp3" loop></audio>
+<audio id="bgMusic" src="music.mp3" loop></audio>
 
 <h1>Happy 3rd Valentine’s Day 💙</h1>
 
@@ -191,13 +189,13 @@ Every smile of yours is my happiness, every memory with you is my treasure 💙
 <h2>Our Beautiful Memories 📸</h2>
 
 <div class="gallery">
-  <img src="images/photo1.jpg">
-  <img src="images/photo2.jpg">
-  <img src="images/photo3.jpg">
-  <img src="images/photo4.jpg">
-  <img src="images/photo5.jpg">
-  <img src="images/photo6.jpg">
-  <img src="images/photo7.jpg">
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+  <img src="photo4.jpg">
+  <img src="photo5.jpg">
+  <img src="photo6.jpg">
+  <img src="photo7.jpg">
 </div>
 
 <div class="proposal-box">
@@ -211,6 +209,10 @@ Every smile of yours is my happiness, every memory with you is my treasure 💙
 </div>
 
 <script>
+const frontPage = document.getElementById("frontPage");
+const lovePage = document.getElementById("lovePage");
+const bgMusic = document.getElementById("bgMusic");
+
 function openLove(){
     frontPage.style.display = "none";
     lovePage.style.display = "block";
@@ -220,8 +222,9 @@ function openLove(){
 
 function moveNo(){
     const btn = document.querySelector(".no");
-    btn.style.left = Math.random()*220 - 110 + "px";
-    btn.style.top = Math.random()*220 - 110 + "px";
+    btn.style.position = "relative";
+    btn.style.left = Math.random()*200 - 100 + "px";
+    btn.style.top = Math.random()*200 - 100 + "px";
 }
 
 /* Floating hearts */
@@ -229,16 +232,11 @@ function moveNo(){
 function createHeart(){
     const heart = document.createElement("div");
     heart.className = "heart";
-
-    const hearts = ["🤍","💙"];
-    heart.innerHTML = hearts[Math.floor(Math.random()*2)];
-
+    heart.innerHTML = Math.random() > 0.5 ? "🤍" : "💙";
     heart.style.left = Math.random()*100 + "vw";
     heart.style.fontSize = Math.random()*20 + 15 + "px";
     heart.style.animationDuration = Math.random()*4 + 6 + "s";
-
     frontPage.appendChild(heart);
-
     setTimeout(()=>heart.remove(),9000);
 }
 
@@ -247,4 +245,3 @@ setInterval(createHeart,250);
 
 </body>
 </html>
-
